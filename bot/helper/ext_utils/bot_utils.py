@@ -123,7 +123,7 @@ def get_readable_message():
                 globals()['PAGE_NO'] -= 1
         for index, download in enumerate(list(download_dict.values())[COUNT:], start=1):
             msg += f"<b>Name:</b> <code>{escape(str(download.name()))}</code>"
-            msg += f"\n<b>⏳Status→Downloading:</b> <i>{download.status()}</i>"
+            msg += f"\n<b>⏳Status→:</b> <i>{download.status()}</i>"
             if download.status() not in [
                 MirrorStatus.STATUS_ARCHIVING,
                 MirrorStatus.STATUS_EXTRACTING,
@@ -136,11 +136,11 @@ def get_readable_message():
                 elif download.status() == MirrorStatus.STATUS_UPLOADING:
                     msg += f"\n<b>📤Uploaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 else:
-                    msg += f"\n<b>⬇📥Downloaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                    msg += f"\n<b>📥Downloaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 msg += f"\n<b>⚡Speed:</b> {download.speed()} | <b>ETA:</b> {download.eta()}"
                 try:
                     msg += f"\n<b>🌱Seeders:</b> {download.aria_download().num_seeders}" \
-                           f" | <b>🌾.Peers:</b> {download.aria_download().connections}"
+                           f" | <b>🌾Peers:</b> {download.aria_download().connections}"
                 except:
                     pass
                 try:
@@ -155,7 +155,7 @@ def get_readable_message():
                 msg += f" | <b>Uploaded: </b>{get_readable_file_size(download.torrent_info().uploaded)}"
                 msg += f"\n<b>Ratio: </b>{round(download.torrent_info().ratio, 3)}"
                 msg += f" | <b>⏰Time: </b>{get_readable_time(download.torrent_info().seeding_time)}"
-                msg += f"\n<code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n<code>❌Tᴏ Cᴀɴᴄᴇʟ→/{BotCommands.CancelMirror} {download.gid()}</code>"
             else:
                 msg += f"\n<b>Size: </b>{download.size()}"
             msg += "\n\n"
