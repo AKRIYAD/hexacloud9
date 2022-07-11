@@ -122,7 +122,7 @@ def get_readable_message():
                 globals()['COUNT'] -= STATUS_LIMIT
                 globals()['PAGE_NO'] -= 1
         for index, download in enumerate(list(download_dict.values())[COUNT:], start=1):
-            msg += f"<b>Name:</b> <code>{escape(str(download.name()))}</code>"
+            msg += f"<b>💿File Name:</b> <code>{escape(str(download.name()))}</code>"
             msg += f"\n<b>⏳Status→:</b> <i>{download.status()}</i>"
             if download.status() not in [
                 MirrorStatus.STATUS_ARCHIVING,
@@ -137,7 +137,7 @@ def get_readable_message():
                     msg += f"\n<b>📤Uploaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 else:
                     msg += f"\n<b>📥Downloaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
-                msg += f"\n<b>⚡Speed:</b> {download.speed()} | <b>ETA:</b> {download.eta()}"
+                msg += f"\n<b>⚡Speed:</b> {download.speed()} | <b>⏰ETA:</b> {download.eta()}"
                 try:
                     msg += f"\n<b>🌱Seeders:</b> {download.aria_download().num_seeders}" \
                            f" | <b>🌾Peers:</b> {download.aria_download().connections}"
@@ -161,7 +161,7 @@ def get_readable_message():
             msg += "\n\n"
             if STATUS_LIMIT is not None and index == STATUS_LIMIT:
                 break
-        bmsg = f"<b>🖥 CPU→:</b> {cpu_percent()}% | <b>⚗️FREE:</b> {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}"
+        bmsg = f"<b>🖥️CPU→:</b> {cpu_percent()}% | <b>⚗️FREE:</b> {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}"
         bmsg += f"\n<b>📦RAM→:</b> {virtual_memory().percent}% | <b>⏰UPTIME:</b> {get_readable_time(time() - botStartTime)}"
         dlspeed_bytes = 0
         upspeed_bytes = 0
