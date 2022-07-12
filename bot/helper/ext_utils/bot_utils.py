@@ -139,7 +139,7 @@ def get_readable_message():
                     msg += f"\n<b>📥 Downloaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 msg += f"\n<b>⚡ Speed:</b> {download.speed()} \n <b>⏰ Time Left→:</b> {download.eta()}"
                 try:
-                    msg += f"\n<b>🌱 Seeders:</b> {download.aria_download().num_seeders}" \
+                    msg += f"\n<b>🌱 Seeders:</b> {download.aria_download().num_seeders}" \n
                            f" <b>🌾 Peers:</b> {download.aria_download().connections}"
                 except:
                     pass
