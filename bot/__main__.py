@@ -55,7 +55,7 @@ def stats(update, context):
             f'<b>├⌬ RAM:</b> {mem_p}%\n'\
             f'<b>├⌬ DISK:</b> {disk}%\n\n'\
             f'<b>├⌬ Physical Cores:</b> {p_core}\n'\
-            f'<b>├⌬ Total Cores:</b> {t_core}\n\n'\
+            f'<b>├⌬ Total Cores:</b> {t_core}n'\
             f'<b>├⌬ SWAP:</b> {swap_t} | <b>Used:</b> {swap_p}%\n'\
             f'<b>├⌬ Memory Total:</b> {mem_t}\n'\
             f'<b>├⌬ Memory Free:</b> {mem_a}\n'\
