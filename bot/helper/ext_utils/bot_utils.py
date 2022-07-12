@@ -140,7 +140,7 @@ def get_readable_message():
                 msg += f"\n<b>⚡ Speed:</b> {download.speed()} \n <b>⏰ Time Left→:</b> {download.eta()}"
                 try:
                     msg += f"\n<b>🌱 Seeders:</b> {download.aria_download().num_seeders}" \
-                           f" <b>🌾 Peers:</b> {download.aria_download().connections}"
+                           f"\n<b>🌾 Peers:</b> {download.aria_download().connections}"
                 except:
                     pass
                 try:
