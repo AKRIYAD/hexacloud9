@@ -123,7 +123,7 @@ def get_readable_message():
                 globals()['PAGE_NO'] -= 1
         for index, download in enumerate(list(download_dict.values())[COUNT:], start=1):
             msg += f"<b>🗃️ File Name→:</b> <code>{escape(str(download.name()))}</code>"
-            msg += f"\n\n<b>⏳ Status→:</b> <i>{download.status()}</i>"
+            msg += f"\n\n<b>├⌬ ⏳Status→</b> <i>{download.status()}</i>"
             if download.status() not in [
                 MirrorStatus.STATUS_ARCHIVING,
                 MirrorStatus.STATUS_EXTRACTING,
@@ -132,12 +132,12 @@ def get_readable_message():
             ]:
                 msg += f"\n{get_progress_bar_string(download)} {download.progress()}"
                 if download.status() == MirrorStatus.STATUS_CLONING:
-                    msg += f"\n<b>👥 Clone:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                    msg += f"\n<b>├⌬ 👥Clone:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 elif download.status() == MirrorStatus.STATUS_UPLOADING:
-                    msg += f"\n<b>📤 Uploaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                    msg += f"\n<b>├⌬ 📤Uploaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 else:
-                    msg += f"\n\n<b>📥 Downloaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
-                msg += f"\n<b>⚡ Speed:</b> {download.speed()} \n <b>⏰ Time Left→:</b> {download.eta()}"
+                    msg += f"\n\n<b>├⌬ 📥Downloaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                msg += f"\n<b>⚡ Speed:</b> {download.speed()} \n <b>├⌬ ⏰Time Left→</b> {download.eta()}"
                 try:
                     msg += f"\n<b>🌱 Seeders:</b> {download.aria_download().num_seeders}" \
                            f"\n<b>🌾 Peers:</b> {download.aria_download().connections}"
