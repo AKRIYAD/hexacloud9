@@ -137,7 +137,7 @@ def get_readable_message():
                     msg += f"\n<b>├⌬ 📤Uploaded→</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 else:
                     msg += f"\n\n<b>├⌬ 📥Downloaded→</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
-                msg += f"\n<b>├⌬ ⚡Speed→</b> {download.speed()} \n<b>├⌬ ⏰Time Left→</b> {download.eta()}"
+                msg += f"\n<b>├⌬ ⚡Speed→</b> {download.speed()} \n <b>├⌬ ⏰Time Left→</b> {download.eta()}"
                 try:
                     msg += f"\n<b>├⌬ 🌱Seeders→</b> {download.aria_download().num_seeders}" \
                            f"\n<b>├⌬ 🌾Peers→</b> {download.aria_download().connections}"
@@ -148,7 +148,7 @@ def get_readable_message():
                            f" <b>├⌬ 💉Leacher→</b> {download.torrent_info().num_leechs}"
                 except:
                     pass
-                msg += f"\n<b>├⌬ 🚫Tᴏ Cᴀɴᴄᴇʟ→<code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n├⌬ 🚫Tᴏ Cᴀɴᴄᴇʟ→<code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             elif download.status() == MirrorStatus.STATUS_SEEDING:
                 msg += f"\n<b>├⌬ Size→</b>{download.size()}"
                 msg += f"\n<b>├⌬ ⚡️Speed→</b>{get_readable_file_size(download.torrent_info().upspeed)}/s"
