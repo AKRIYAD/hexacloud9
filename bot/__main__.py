@@ -78,7 +78,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
         sendMarkup('Not Authorized user, deploy your own mirror-leech bot', context.bot, update.message, reply_markup)
 
 def restart(update, context):
-    restart_message = sendMessage("Restarting→↻", context.bot, update.message)
+    restart_message = sendMessage("🔄 Restarting 🔄", context.bot, update.message)
     if Interval:
         Interval[0].cancel()
         Interval.clear()
@@ -238,7 +238,7 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("Restarted successfully 👍🏿", chat_id, msg_id)
+        bot.edit_message_text("Restarted successfully👍", chat_id, msg_id)
         osremove(".restartmsg")
 
     start_handler = CommandHandler(BotCommands.StartCommand, start, run_async=True)
