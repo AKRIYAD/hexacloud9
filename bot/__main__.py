@@ -59,7 +59,7 @@ def stats(update, context):
             f'<b>├⌬ SWAP→</b> {swap_t} \n<b>├⌬ Swap Used→</b> {swap_p}%\n'\
             f'<b>├⌬ Memory Total→</b> {mem_t}\n'\
             f'<b>├⌬ Memory Free→</b> {mem_a}\n'\
-            f'<b>╰─ Memory Used→</b> {mem_u}\n'
+            f'<b>╰─ Used→</b> {mem_u}\n'
     sendMessage(stats, context.bot, update.message)
 
 
@@ -78,7 +78,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
         sendMarkup('Not Authorized user, deploy your own mirror-leech bot', context.bot, update.message, reply_markup)
 
 def restart(update, context):
-    restart_message = sendMessage("Restarting...", context.bot, update.message)
+    restart_message = sendMessage("Restarting→↻", context.bot, update.message)
     if Interval:
         Interval[0].cancel()
         Interval.clear()
@@ -209,7 +209,7 @@ def main():
                 if ospath.isfile(".restartmsg"):
                     with open(".restartmsg") as f:
                         chat_id, msg_id = map(int, f)
-                    msg = 'Restarted successfully!'
+                    msg = 'Restarted successfully 👍'
                 else:
                     msg = 'Bot Restarted!'
                 for tag, links in data.items():
@@ -238,7 +238,7 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("Restarted successfully!", chat_id, msg_id)
+        bot.edit_message_text("Restarted successfully 👍🏿", chat_id, msg_id)
         osremove(".restartmsg")
 
     start_handler = CommandHandler(BotCommands.StartCommand, start, run_async=True)
@@ -258,7 +258,7 @@ def main():
     dispatcher.add_handler(stats_handler)
     dispatcher.add_handler(log_handler)
     updater.start_polling(drop_pending_updates=IGNORE_PENDING_REQUESTS)
-    LOGGER.info("Bot Started!")
+    LOGGER.info("🤖 Bot Started 🤖")
     signal(SIGINT, exit_clean_up)
 
 app.start()
